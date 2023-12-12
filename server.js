@@ -1,14 +1,22 @@
-const express = require('express');
-const productRoutes = require('./routes');
+require("dotenv").config();
 
-const PORT = 5000;
 
-const app = express();
+const express = require('express'); //Express 모듈 불러오기
+const productRoutes = require('./routes'); 
+
+const PORT = 5000; //Express 서버를 위한 포트 설정
+const HOST = '0.0.0.0'; //호스트 지정
+const app = express(); //새로운 Express 어플 생성
+const mongoose = require('mongoose');//몽고db를 사용하기 위한 모듈
+
+console.log(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
 
 app.use("/api/products", productRoutes)
 
+//express.json() //express에 들어 있는 내장 미들웨어 함수로, bodyParser를 할 수 있음
 
+app.listen(PORT, HOST); //해당 포트와 호스트에서 HTTP 서버를 시작
 
-app.listen(PORT);
+console.log(`Running on http://${HOST}:${PORT}`)
 
-console.log(`Running on port ${PORT}`)
