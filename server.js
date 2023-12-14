@@ -24,3 +24,4 @@ app.listen(PORT, HOST); //해당 포트와 호스트에서 HTTP 서버를 시작
 
 console.log(`Running on http://${HOST}:${PORT}`)
 
+module.exports = app;

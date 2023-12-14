@@ -12,7 +12,7 @@ beforeEach(() => {
     req = httpMocks.createRequest();
     //console.log(req);
     res = httpMocks.createResponse();
-    next = null;
+    next = jest.fn();
 }) 
 
 
@@ -49,6 +49,4 @@ describe("Product Controller Create", () => {
         await productController.createProduct(req,res,next);
         expect(next).toBeCalledWith(errorMessage);
     })
-
-
 })
