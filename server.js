@@ -11,10 +11,14 @@ const mongoose = require('mongoose');//몽고db를 사용하기 위한 모듈
 
 console.log(process.env.MONGO_URI)
 mongoose.connect(process.env.MONGO_URI)
+    .then(()=>console.log("MongoDB connected!"))
+    .catch((err)=> console.log(err));
+
+app.use(express.json()) //express에 들어 있는 내장 미들웨어 함수로, bodyParser를 할 수 있음
+
 
 app.use("/api/products", productRoutes)
 
-//express.json() //express에 들어 있는 내장 미들웨어 함수로, bodyParser를 할 수 있음
 
 app.listen(PORT, HOST); //해당 포트와 호스트에서 HTTP 서버를 시작
 

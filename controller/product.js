@@ -1,10 +1,11 @@
 const productModel = require('../models/Product')
 
 
-
-
-exports.createProduct =(req,res, next) => {
-    productModel.create(req.body);
-    res.status(201).send();
+exports.createProduct = async (req,res, next) => {
     
+    const newProd = new productModel(req.body)
+    console.log(newProd + '!!!!!!!!!!!!!!!!!')
+    const createdProduct = await newProd.save();
+    console.log(createdProduct)
+    res.status(201).json(createdProduct);
 }
