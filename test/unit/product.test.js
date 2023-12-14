@@ -1,7 +1,11 @@
+const productController = require('../../controller/product')
+const mock = jest.fn();
+
+
 //describe 를 통해 그룹화 가능
-describe("계산", () => {
-    test('2+2 = 4', () => {
-        expect(2+2).toBe(4);
+describe("Product Controller Create", () => {
+    test('should have a createProduct function', () => {
+        expect(typeof productController.createProduct).toBe("function");
     })
 
 })
