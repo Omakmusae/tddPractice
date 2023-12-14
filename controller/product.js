@@ -7,7 +7,7 @@ exports.createProduct = async (req,res, next) => {
         console.log('createProduct : ',createdProduct)
         res.status(201).json(createdProduct);
     } catch (error) {
-        console.log(error)
+        //console.log(error)
         next(error);
     }
 

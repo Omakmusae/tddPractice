@@ -11,6 +11,17 @@ it("POST /api/products", async()=> {
     expect(response.body.description).toBe(newProduct.description)
 })
 
+
+it ("should return 500 on POST /api/products", async() => {
+    const respone = await request(app)
+        .post('/api/products')
+        .send({name:"phone"})
+    expect(respone.statusCode).toBe(500);
+    console.log('response.body : ', respone.body)
+    expect(respone.body).toStrictEqual({message: ""})
+})
+
+
 afterAll(async () => {
     await new Promise(resolve => app.close(resolve));
   });
