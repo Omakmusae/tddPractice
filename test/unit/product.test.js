@@ -5,11 +5,13 @@ const newProduct = require('../data/new-product.json')
 
 productModel.create = jest.fn();
 
+let req, res, next;
+
 beforeEach(() => {
-    let req = httpMocks.createRequest();
+    req = httpMocks.createRequest();
     //console.log(req);
-    let res = httpMocks.createResponse();
-    let next = null;
+    res = httpMocks.createResponse();
+    next = null;
 }) 
 
 
