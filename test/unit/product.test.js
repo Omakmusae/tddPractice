@@ -30,5 +30,9 @@ describe("Product Controller Create", () => {
         productController.createProduct(req,res, next);
         expect(productModel.create).toBeCalledWith(newProduct);
     })
+    it("should return 201 response code", () => {
+        productController.createProduct(req,res, next)
+        expect(res.statusCode).toBe(201);
+    })
 
 })
