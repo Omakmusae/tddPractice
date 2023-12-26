@@ -16,14 +16,27 @@ it("POST /api/products", async()=> {
 
 //일부러 에러 발생하는 테스트
 it ("should return 500 on POST /api/products", async() => {
-    const respone = await request(app)
+    const response = await request(app)
         .post('/api/products')
         .send({name:"phone"})
-    expect(respone.statusCode).toBe(500);
-    console.log('response.body : #########', respone.body)
-    expect(respone.body).toStrictEqual({message: "Product validation failed: description: Path `description` is required."})
+    expect(response.statusCode).toBe(500);
+    console.log('response.body : #########', response.body)
+    expect(response.body).toStrictEqual({message: "Product validation failed: description: Path `description` is required."})
 
 })
+
+//전체 조회 통합테스트
+it ("GET /api/products", async() => {
+    const response = await request(app).get('/api/products')
+    expect(response.statusCode).toBe(200);
+    //toBeTruthy는 expect가 트루인지, isArray는 배열인지 아닌지 판별
+    expect(Array.isArray(response.body)).toBeTruthy();
+    //toBeDefined는 변수가 undefined가 아닌지 체크
+    expect(response.body[0].name).toBeDefined();
+    expect(response.body[0].description).toBeDefined();
+    
+})
+
 
 
 afterAll(async () => {
