@@ -59,5 +59,4 @@ describe("Product Controller Create", () => {
         console.log(errorMessage)
         expect(next).toBeCalledWith(errorMessage);
     })
-
 })
