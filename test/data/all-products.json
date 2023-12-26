@@ -1,0 +1,17 @@
+[
+    {
+        "name" : "New gloves",
+        "description":"good to wear, new thing",
+        "price":15
+    },
+    {
+        "name" : "New gloves",
+        "description":"good to wear, new thing",
+        "price":13
+    },
+    {
+        "name" : "New gloves",
+        "description":"good to wear, new thing",
+        "price":11
+    }
+]

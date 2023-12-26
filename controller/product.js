@@ -18,7 +18,7 @@ exports.createProduct = async (req,res, next) => {
 }
 
 exports.getProducts = async(req,res,next)=> {
-    const result = await productModel.find({});
-    console.log(result)
-    res.status(201).json(result)
+    const allProducts = await productModel.find({});
+    console.log(allProducts)
+    res.status(200).json(allProducts)
 }
