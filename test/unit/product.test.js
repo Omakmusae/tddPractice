@@ -60,3 +60,9 @@ describe("Product Controller Create", () => {
         expect(next).toBeCalledWith(errorMessage);
     })
 })
+
+describe('product controller get', ()=> {
+    it('should have a getProducts function', () => {
+        expect(typeof productController.getProducts).toBe("function")
+    })
+})

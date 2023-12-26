@@ -2,7 +2,6 @@
 const { Mongoose } = require('mongoose');
 const productModel = require('../models/Product')
 
-
 exports.createProduct = async (req,res, next) => {
     try {
         const createdProduct = await productModel.create(req.body);
@@ -12,6 +11,8 @@ exports.createProduct = async (req,res, next) => {
         //console.log(error)
         next(error);
     }
-
 }
 
+exports.getProducts = async(req,res,next)=> {
+
+}
