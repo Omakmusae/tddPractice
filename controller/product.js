@@ -30,6 +30,6 @@ exports.getProducts = async(req,res,next)=> {
 
 
 exports.getProductById = async(req,res,next)=> {
-    
+    const productById = await productModel.findById(req.params.productId);
 
 }

@@ -7,6 +7,10 @@ const allProducts = require('../data/all-products.json');
 
 productModel.create = jest.fn();
 productModel.find=jest.fn();
+productModel.findById=jest.fn();
+const productId = "658a9803406135fdae2349c1";
+
+
 
 let req,res,next;
 
@@ -94,7 +98,13 @@ describe('product controller get',  ()=> {
 })
 
 describe("Product Controller GetById", () => {
-    it("should have a getProductById", async () => {
-        expect(typeof productController.getProductsById)
+    it("should have a getProductById", () => {
+        expect(typeof productController.getProductById).toBe("function")
     })
+    it("should have a getProductById", async () => {
+        req.params.productId = productId
+        await productController.getProductById(req,res,next)
+        expect(productModel.findById).toBeCalledWith(productId);
+    })
+
 })
