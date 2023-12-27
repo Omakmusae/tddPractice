@@ -90,6 +90,11 @@ describe('product controller get',  ()=> {
         productModel.find.mockReturnValue(rejectPromise);
         await productController.getProducts(req,res,next)
         expect(next).toHaveBeenCalledWith(errorMessage)
+    })
+})
 
+describe("Product Controller GetById", () => {
+    it("should have a getProductById", async () => {
+        expect(typeof productController.getProductsById)
     })
 })

@@ -39,7 +39,8 @@ it ("GET /api/products", async() => {
 
 
 
-afterAll(async () => {
-    await new Promise(resolve => app.close(resolve));
-  });
+
+// afterAll(async () => {
+//     await new Promise(resolve => app.close(resolve));
+//   });
   

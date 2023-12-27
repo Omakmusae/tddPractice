@@ -27,3 +27,9 @@ exports.getProducts = async(req,res,next)=> {
         next(error)
     }
 }
+
+
+exports.getProductById = async(req,res,next)=> {
+    
+
+}
